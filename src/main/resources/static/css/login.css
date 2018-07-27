@@ -1,0 +1,26 @@
+.form-signin {
+    padding-top: 120px;
+}
+
+.checkbox {
+    padding-bottom: 10px;
+    padding-top: 20px;
+}
+
+.form-signin-heading {
+    padding-bottom: 20px;
+}
+
+#inputEmail {
+    margin-bottom: 20px;
+}
+
+.errorBlock {
+    color: red;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.btnSubmit {
+    cursor: pointer;
+}

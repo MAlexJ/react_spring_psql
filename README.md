@@ -1,3 +1,11 @@
+# Documentation
+*********************
+
+Path to th documentation: 
+/documentation/swagger-ui.html
+
+Note: Documentation is available only after authorization of the user
+
 # Docker
 ********************************
 
