@@ -252,7 +252,9 @@
                     <!--path to resources folder-->
                     <!--<url>jdbc:sqlite::resource:db/db_app.db</url>-->
                     <!--path to `db` folder -->
-                    <url>jdbc:sqlite:db/db_app.db</url>
+                    <url>jdbc:postgresql://0.0.0.0:5432/app</url>
+                    <user>malexj</user>
+                    <password>2687484a</password>
                     <locations>
                         <location>classpath:/migration</location>
                     </locations>

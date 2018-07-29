@@ -13,7 +13,8 @@ Note: Documentation is available only after authorization of the user
 
 2. docker search [product]
 
-3. docker pull [product]:[version]
+3. docker pull [product]:[version] 
+    example: docker pull postgres:latest
 
 4. docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
     EXAMPLE: docker run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=2687484a -d postgres
@@ -22,6 +23,8 @@ Note: Documentation is available only after authorization of the user
 
 6. docker exec -it [CONTAINER_ID] /bin/sh
     CMD: > psql
+    psql: FATAL:  role "root" does not exist
+    CMD >>> # psql -U postgres
 
 7.  docker stop [OPTIONS] CONTAINER [CONTAINER...]
 
@@ -38,6 +41,7 @@ Note: Documentation is available only after authorization of the user
 
 	// Create a schema called test in the default database called postgres
 	postgres=# CREATE SCHEMA test;
+	postgres=# CREATE DATABASE app;
 
 	//Create a role (user) with password
 	postgres=# CREATE USER xxx PASSWORD 'yyy';

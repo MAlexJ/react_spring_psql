@@ -9,7 +9,7 @@ public class TestDataBaseConnection
     /**
      * Database credentials
      */
-    private static final String DB_URL = "jdbc:postgresql://0.0.0.0:5432/postgres";
+    private static final String DB_URL = "jdbc:postgresql://0.0.0.0:5432/app";
     private static final String USER = "malexj";
     private static final String PASS = "2687484a";
 
