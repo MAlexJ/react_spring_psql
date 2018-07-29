@@ -24,8 +24,8 @@ import java.util.List;
 
 import static com.malex.constant.Constant.*;
 
-@Configuration
 @EnableWebMvc
+@Configuration
 @ComponentScan(basePackages = {CONFIG_LOCATION})
 public class WebMvcConfig implements WebMvcConfigurer, ApplicationContextAware
 {

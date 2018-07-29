@@ -5,40 +5,43 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @Builder
 @Getter
 @ToString
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class BuilderDTO
 {
+    // model
+    private Long userId;
+    private String firstName;
+    private String lastName;
+    private LocalDate dataOfBirth;
+    private Integer age;
+    private String gender;
+
     // response
     private String message;
-    boolean isError;
+    private boolean isError;
 
     // default
     private String html;
 
-    // Category
-    private Integer idCategory;
-    private String nameCategory;
-    private String descriptionCategory;
-    private String htmlCategory;
-
-    private List<BuilderDTO> subCategories;
+    private List<BuilderDTO> users;
 
     public static class BuilderDTOBuilder
     {
         BuilderDTOBuilder addSubCategory(BuilderDTO dto)
         {
-            if (Objects.isNull(subCategories))
+            if (Objects.isNull(users))
             {
-                subCategories = new ArrayList<>();
+                users = new ArrayList<>();
             }
-            subCategories.add(dto);
+            users.add(dto);
             return this;
         }
     }
