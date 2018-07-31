@@ -65,4 +65,9 @@ public class Constant
      */
     public final static String SUCCESS_MESSAGE = "Success";
     public final static String ERROR_MESSAGE = "Error";
+
+    /**
+     * Link builder
+     */
+    public final static String LINK_ACTUAL = "actual";
 }

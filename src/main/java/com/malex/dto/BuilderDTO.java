@@ -1,9 +1,12 @@
 package com.malex.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.malex.enums.Gender;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
+import org.springframework.hateoas.ResourceSupport;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -14,15 +17,16 @@ import java.util.Objects;
 @Getter
 @ToString
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class BuilderDTO
+public class BuilderDTO extends ResourceSupport
 {
     // model
     private Long userId;
     private String firstName;
     private String lastName;
+    @JsonFormat(pattern = "yyyy/MM/dd")
     private LocalDate dataOfBirth;
     private Integer age;
-    private String gender;
+    private Gender gender;
 
     // response
     private String message;

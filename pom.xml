@@ -4,14 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>app.psql.malex</groupId>
-    <artifactId>app.psql.malex</artifactId>
+    <groupId>resct.spring.psql</groupId>
+    <artifactId>resct.spring.psql</artifactId>
     <version>1.0.0</version>
     <packaging>war</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>5.0.2.RELEASE</spring.version>
+        <spring.hateoas>0.24.0.RELEASE</spring.hateoas>
         <thymeleaf.version>3.0.7.RELEASE</thymeleaf.version>
         <spring-security-web.version>5.0.0.RELEASE</spring-security-web.version>
         <springfox-swagger-ui.version>2.7.0</springfox-swagger-ui.version>
@@ -51,6 +52,11 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson-core.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${jackson-core.version}</version>
+        </dependency>
         <!-- Spring-->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -67,6 +73,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webflux</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+        <!-- hateoas -->
+        <dependency>
+            <groupId>org.springframework.hateoas</groupId>
+            <artifactId>spring-hateoas</artifactId>
+            <version>${spring.hateoas}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>

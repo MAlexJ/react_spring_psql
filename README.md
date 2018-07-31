@@ -63,3 +63,12 @@ Note: Documentation is available only after authorization of the user
 
 	CREATE TABLE app.user (userId SERIAL PRIMARY KEY, firstName VARCHAR(20), lastName VARCHAR(20), bithData DATE, gender VARCHAR(6));
 	INSERT INTO app.user (firstName, lastName, birthData, gender) VALUES('Alex', 'Maximov', '06/21/1985', 'MALE');
+	
+# REST API
+********************************
+
+GET: /user
+GET: /user/{id}
+PUT: /user
+POST: /user/{id}
+DELETE: /user/{id}
