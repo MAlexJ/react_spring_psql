@@ -3,12 +3,10 @@ package com.malex.controller;
 import com.malex.dto.BuilderDTO;
 import com.malex.enums.Gender;
 import org.springframework.hateoas.Link;
-import org.springframework.hateoas.MediaTypes;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDate;
 
 import static com.malex.constant.Constant.LINK_ACTUAL;
@@ -24,16 +22,38 @@ public class RestApiController
     @GetMapping(produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
     public BuilderDTO getAll()
     {
-        return BuilderDTO.builder().message("List of users").build();
+        BuilderDTO dto_1 = BuilderDTO.builder()
+                .userId(1L)
+                .firstName("Maksymov")
+                .lastName("Alex")
+                .dataOfBirth(LocalDate.of(1985, 7, 21))
+                .age(30)
+                .gender(Gender.MALE)
+                .build();
+
+        BuilderDTO dto_2 = BuilderDTO.builder()
+                .userId(2L)
+                .firstName("Kovalek")
+                .lastName("Anna")
+                .dataOfBirth(LocalDate.of(1989, 4, 12))
+                .age(25)
+                .gender(Gender.FEMALE)
+                .build();
+
+
+        return BuilderDTO.builder()
+                .add(dto_1)
+                .add(dto_2)
+                .message(SUCCESS_MESSAGE)
+                .build();
     }
 
     /**
      * GET: /user/{id}
      */
-    @GetMapping(value = "{id}", produces = {MediaTypes.HAL_JSON_UTF8_VALUE})
-    public BuilderDTO getById(@PathVariable("id") Long id, final HttpServletResponse response)
+    @GetMapping(value = "{id}", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
+    public BuilderDTO getById(@PathVariable("id") Long id)
     {
-        response.setHeader("Cache-Control", "no-cache");
         BuilderDTO dto = BuilderDTO.builder()
                 .userId(id)
                 .firstName("Maksymov")
@@ -98,7 +118,7 @@ public class RestApiController
                 .withTitle(title)
                 .withDeprecation(LINK_ACTUAL)
                 .withHreflang(method)
-                .withMedia(MediaTypes.HAL_JSON_UTF8_VALUE)
+                .withMedia(MediaType.APPLICATION_JSON_UTF8_VALUE)
                 .withType(MediaType.APPLICATION_JSON.getSubtype());
     }
 }

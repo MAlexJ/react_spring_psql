@@ -4,6 +4,7 @@ import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.annotation.Nonnull;
@@ -27,6 +28,10 @@ public class ApplicationInitializer implements WebApplicationInitializer
         // Security config
 //        servletContext.addFilter(FILTER_NAME, new DelegatingFilterProxy(TARGET_BEAN_NAME))
 //                .addMappingForUrlPatterns(null, false, URL_PATTERNS);
+
+        // add CORSFilter filter
+        DelegatingFilterProxy filter = new DelegatingFilterProxy("CORSFilter");
+        servletContext.addFilter("CORSFilter", filter).addMappingForUrlPatterns(null, true, URL_PATTERNS);
 
         // Create the dispatcher servlet's Spring application context
         ServletRegistration.Dynamic dispatcher = servletContext

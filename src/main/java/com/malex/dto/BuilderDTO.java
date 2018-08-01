@@ -39,7 +39,7 @@ public class BuilderDTO extends ResourceSupport
 
     public static class BuilderDTOBuilder
     {
-        BuilderDTOBuilder addSubCategory(BuilderDTO dto)
+        public BuilderDTOBuilder add(BuilderDTO dto)
         {
             if (Objects.isNull(users))
             {
